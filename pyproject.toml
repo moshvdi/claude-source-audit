@@ -1,0 +1,12 @@
+[project]
+name = "claude-source-audit"
+version = "0.1.0"
+description = "Source-traceability gate for Claude-generated technical documents."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["anthropic>=0.40.0"]
+authors = [{ name = "Michael Oshodi" }]
+license = { text = "MIT" }
+
+[project.scripts]
+claude-source-audit = "audit:main"
