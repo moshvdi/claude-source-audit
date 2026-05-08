@@ -4,6 +4,16 @@ A minimal Claude-powered evaluation framework that enforces **source traceabilit
 
 Built on the [Anthropic Python SDK](https://github.com/anthropics/anthropic-sdk-python). Designed to be dropped into any RAG, agent, or document-generation pipeline as a **gate** rather than a hope.
 
+## Quickstart
+
+```bash
+pip install -e . && export ANTHROPIC_API_KEY=sk-ant-...
+claude-source-audit report.md --sources ./evidence/
+# stdout: Source Traceability Map (per-claim table) + Summary block, e.g.
+#   Verified: 13 / 14   Verification: 92%   Gate Result: **PASS**
+# Exits 0 PASS / 1 REVIEW / 2 FAIL - drop into CI to block release on regress.
+```
+
 ## Why this exists
 
 LLMs fabricate numbers. Not occasionally - routinely. In production workflows where a single invented statistic can propagate into a customer email, a JIRA escalation, or a board report, "the model said so" is not an acceptable audit trail.
